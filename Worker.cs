@@ -17,6 +17,7 @@ public abstract class Worker : Entity
         
     }
 
+
     public virtual double CalculatePerformance()
     {
         
