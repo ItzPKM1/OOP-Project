@@ -1,7 +1,8 @@
-public interface IQueueable<T>
+
+public interface IFileHandler
 {
-    void Enqueue(T item);
-    T Dequeue();
-    T Peek();
-    bool IsEmpty();
+    void Save(string path);
+    void Load(string path);
+  
+   
 }

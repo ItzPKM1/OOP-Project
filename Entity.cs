@@ -1,4 +1,4 @@
-public class Entity
+public abstract class Entity
 {
     private int id;
     private string name;
@@ -11,19 +11,34 @@ public class Entity
         this.createdDate = createdDate;
     }
 
-    public int setName
+   public int GetId()
     {
-        
+        return id;
     }
 
-    public string getName()
+    public void SetId(int id)
+    {
+        this.id =  id  ;
+    }
+
+
+    public string GetName()
     {
         return name;
+    }
+    public void SetName(string name)
+    {
+        if(string.IsNullOrEmpty(name))
+        {
+            throw new Exception(" Name is empty ");
+        }
+        
+        this.name = name;
     }
 
     public virtual bool Validate()
     {
-        
+       //ASK TEACHER
     }
 
     public abstract void DisplayInfo();
