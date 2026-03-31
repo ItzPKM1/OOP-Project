@@ -31,4 +31,9 @@ public abstract class Vehicle : Entity
 
     public abstract void Deliver(List<Package> packages);
     
+    public override void DisplayInfo()
+    {
+        Console.WriteLine("Your speed is " + GetSpeed())
+        
+    }
 }

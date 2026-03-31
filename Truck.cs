@@ -6,12 +6,12 @@ public class Truck : Vehicle
         this.fuelConsumption = fuelConsumption;
     }
 
-    @Override Deliver(List<Package> packages)
+    public override void Deliver(List<Package> packages)
     {
         //*not done*
     }
 
-    @Override CalculateEfficiency()
+    public  override double CalculateEfficiency()
     {
         return base.CalculateEfficiency() / fuelConsumption; // project says based on speed and load, but also consider fuel consumption.
     }

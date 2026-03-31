@@ -36,10 +36,10 @@ public abstract class Entity
         this.name = name;
     }
 
-    public virtual bool Validate()
-    {
-       //ASK TEACHER
-    }
+    // public virtual bool Validate()
+    // {
+    //    //ASK TEACHER
+    // }
 
     public abstract void DisplayInfo();
 
