@@ -8,7 +8,7 @@ public class Truck : Vehicle
 
     public override void Deliver(List<Package> packages)
     {
-        have to do it 
+        // have to do it 
     }
 
     public  override double CalculateEfficiency()

@@ -12,7 +12,7 @@ public class Manager : Worker
     }
     public override void  PerformTask()
     {
-        Dontunderstand
+        //*not done*
     }
     
 }

@@ -1,11 +1,11 @@
-public class CustomQueue<T>
+public class CustomStack<T>
 {
     //Attributes are an array list or storage
     private T[] arr;
     private int count;
     
 
-    public CustomQueue(int capacity)
+    public CustomStack(int capacity)
     {
         if (capacity <= 0)
         {
@@ -21,40 +21,36 @@ public class CustomQueue<T>
     }
 
 //methods. these are like what we learned in python scripting class.
-    public void Enqueue(T item)
+    public void Push(T item)
     {
         if (count == arr.Length)
         {
-            throw new InvalidOperationException("Queue is full.");
+            throw new InvalidOperationException("Stack is full.");
         }
         arr[count] = item;
         count++;
     }
 
-    public T Dequeue()
+    public T Pop() // for a stack you pop the last item, but for a queue you pop the first item.
     {
-        //remove and return the item at the front of the queue
         if (count == 0)
         {
-            throw new InvalidOperationException("Queue is empty.");
+            throw new InvalidOperationException("Stack is empty.");
         }
-        T item = arr[0];
-        for (int i = 1; i < count; i++)
-        {
-            arr[i - 1] = arr[i];
-        }
-        arr[count - 1] = default(T); // Clear the last item
         count--;
+        T item = arr[count-1];
+        arr[count] = default(T);
+        count --;
         return item;
     }
 
-    public T Peek()
+    public T Peek() // peek is in front for a queue, but for top peek is the last item.
     {
         if (count == 0)
         {
-            throw new InvalidOperationException("Queue is empty.");
+            throw new InvalidOperationException("Stack is empty.");
         }
-        return arr[0];
+        return arr[count - 1];
     }
 
     public bool IsEmpty()
