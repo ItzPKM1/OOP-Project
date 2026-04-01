@@ -1,9 +1,9 @@
 public abstract class Vehicle : Entity
 {
-    double speed;
-    double maxCapacity;
-    double currentLoad;
-    bool isAvailable;
+    private double speed;
+    private double maxCapacity;
+    private double currentLoad;
+    private bool isAvailable;
 
 
     public Vehicle(double speed, double maxCapacity) : base(id, name, createdDate)
