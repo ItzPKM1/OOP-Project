@@ -1,32 +1,24 @@
 public class Drone : Vehicle
 {
     private double maxDistance;
-    public Drone(double speed, double maxCapacity, double maxDistance) : base( speed, maxCapacity)
+    public Drone(int id, string name, DateTime createdDate, double speed, double maxCapacity, double maxDistance) : base(id, name, createdDate, speed, maxCapacity)
     {
         this.maxDistance = maxDistance;
     }
-    public double GetMaxDistance()
+
+    public override void Deliver(List<Package> packages)
     {
-        return maxDistance;
+        //*not done*
     }
 
-    public void SetMaxDistance(double maxDistance)
+    public override double CalculateEfficiency()
     {
-        this.maxDistance = maxDistance  ;
+        return base.CalculateEfficiency() / maxDistance; // project says based on distance.
     }
 
-    public override void  Deliver(List<Package> packages)
-    {
-        //*not done* small packages
-    }
-
-    public override double  CalculateEfficiency()
-    {
-        return base.CalculateEfficiency() * maxDistance ; // project says based on distance.
-    }
     public override void DisplayInfo()
     {
-        base.DisplayInfo();
         Console.WriteLine("Max distance is : " + GetMaxDistance());
     }
+    
 }
