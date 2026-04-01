@@ -6,7 +6,7 @@ public abstract class Vehicle : Entity
     private bool isAvailable;
 
 
-    public Vehicle(double speed, double maxCapacity) : base(id, name, createdDate)
+    public Vehicle(int id, string name, DateTime createdDate,double speed, double maxCapacity) : base(id, name, createdDate)
     {
         this.speed = speed;
         this.maxCapacity = maxCapacity;
@@ -14,12 +14,38 @@ public abstract class Vehicle : Entity
         this.isAvailable = true;
     }
 
-    public void setCapacity(double capacity)
+    public double GetSpeed()
     {
-        
+        return speed;
     }
 
-    public double getRemainingCapacity()
+    public void SetSpeed(double speed)
+    {
+        this.speed =  speed  ;
+    }
+    public int GetMaxCapacity()
+    {
+        return maxCapacity;
+    }
+
+    public void SetMaxCapacity(double maxCapacity)
+    {
+        if(maxCapacity < 0)
+        {
+            throw new Exception("Max capacity can't be less than 0");
+        }
+        this.maxCapacity = maxCapacity;
+    }
+    public int GetIsAvailable()
+    {
+        return isAvailable;
+    }
+
+    public void SetIsAvailable(bool isAvailable)
+    {
+        this.isAvailable = isAvailable;
+    }
+    public double GetRemainingCapacity()
     {
         return maxCapacity - currentLoad;
     }
@@ -33,6 +59,10 @@ public abstract class Vehicle : Entity
     
     public override void DisplayInfo()
     {
+        Console.WriteLine("Your speed is " + GetSpeed());
+        Console.WriteLine("Your speed is " + GetSpeed());
+        Console.WriteLine("Your speed is " + GetSpeed());
+        Console.WriteLine("Your speed is " + GetSpeed());
         Console.WriteLine("Your speed is " + GetSpeed());
         //Not done
         
