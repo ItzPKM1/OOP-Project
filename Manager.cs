@@ -6,13 +6,27 @@ public class Manager : Worker
         this.teamSize = teamSize;
     }
 
-    Worker FindBestWorker()
+    public Worker FindBestWorker(List<Worker> workers) //initialize list of workers.
     {
-        //return the best worker
+        Worker bestWorker = null;
+        double bestPerformance = 0;
+        for (int i = 0; i < workers.Count; i++)
+        {
+            double performance = workers[i].CalculateEfficiency();
+            if (performance > bestPerformance)
+            {
+                bestPerformance = performance;
+                bestWorker = workers[i];
+            }
+        }
+        return bestWorker;
     }
+
+    
     public override void  PerformTask()
     {
-        //*not done*
+        Console.WriteLine(name + " is managing a team of " + teamSize + " workers.");
     }
+    
     
 }
