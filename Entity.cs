@@ -35,11 +35,31 @@ public abstract class Entity
         
         this.name = name;
     }
+    public DateTime GetCreatedDate()
+    {
+        return createdDate;
+    }
 
-    // public virtual bool Validate()
-    // {
-    //    //ASK TEACHER
-    // }
+    public void SetCreatedDate(DateTime createdDate)
+    {
+        this.createdDate =  createdDate  ;
+    }
+    public virtual bool Validate()
+    {
+        if (string.IsNullOrEmpty(GetName()))
+        {
+            throw new Exception("This cant be empty or null ");
+            
+        }
+
+        if(GetCreatedDate() > DateTime.Now)
+        {
+            throw new Exception("This date is invalid");
+            
+        }
+
+        return true;
+    }
 
     public abstract void DisplayInfo();
 

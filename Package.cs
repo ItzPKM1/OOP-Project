@@ -16,7 +16,7 @@ public class Package
 
     public double CalculatePriorityScore()
     {
-        
+        Console.WriteLine("Enter priority score");
     }
     public void UpdateStatus(string newStatus)
     {

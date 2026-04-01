@@ -33,7 +33,8 @@ public abstract class Vehicle : Entity
     
     public override void DisplayInfo()
     {
-        Console.WriteLine("Your speed is " + GetSpeed())
+        Console.WriteLine("Your speed is " + GetSpeed());
+        //Not done
         
     }
 }

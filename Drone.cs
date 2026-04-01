@@ -17,7 +17,7 @@ public class Drone : Vehicle
 
     public override void  Deliver(List<Package> packages)
     {
-        //*not done*
+        //*not done* small packages
     }
 
     public override double  CalculateEfficiency()
@@ -26,6 +26,7 @@ public class Drone : Vehicle
     }
     public override void DisplayInfo()
     {
+        base.DisplayInfo();
         Console.WriteLine("Max distance is : " + GetMaxDistance());
     }
 }
