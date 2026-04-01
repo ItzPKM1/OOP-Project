@@ -8,7 +8,10 @@ public class Truck : Vehicle
 
     public override void Deliver(List<Package> packages)
     {
-        // have to do it 
+        if (package.IsHeavy())
+        {
+            Console.WriteLine("this truck handles heavy package");
+        }
     }
 
     public  override double CalculateEfficiency()

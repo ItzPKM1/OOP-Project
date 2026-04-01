@@ -66,7 +66,7 @@ public class Package
 
     public bool IsHeavy()
     {
-        double heavyTreshold =100.0;
+        double heavyTreshold = 100.0;
         return weight > heavyTreshold;
     }
     public double CalculatePriorityScore()
