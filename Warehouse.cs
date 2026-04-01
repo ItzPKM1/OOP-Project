@@ -20,20 +20,48 @@ public class Warehouse
     }
     public void RemovePackage(int packageId)
     {
-        //not done.
+        for (int i = 0; i < packages.Count; i++)
+        {
+            if (packages[i].Id == packageId)
+            {
+                packages.RemoveAt(i);
+                return;
+            }
+        }
     }
-    public Vehicle FindBestVehicle(Package p)
-    {
-        //based on capacity + efficiency.
+    // public Vehicle FindBestVehicle(Package p)
+    // {
+    //     //based on capacity + efficiency.
+    //     Vehicle bestVehicle = null;
+    //     double bestEfficiency = 0;
+    //     for (int i = 0; i < vehicles.Count; i++)
+    //     {
+    //         if ()
+    //         {
+                
+    //         }
+    //     }
+    
 
-    }
+    // }
     public void AssignWorker(Worker worker)
     {
-        workers.Add(worker);
+        for(int i = 0; i < workers.Count; i++)
+        {
+            if (workers[i].IsAvailable)
+            {
+                return workers[i];
+            }
+        }
+        return null; // no available worker
     }
 
     public List<Package> GetPendingPackages()
     {
         //not done.
+        for (int i = 0; i < packages.Count; i++)
+        {
+            // if ()
+        }
     }
 }

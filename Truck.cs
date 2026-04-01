@@ -8,11 +8,15 @@ public class Truck : Vehicle
 
     public override void Deliver(List<Package> packages)
     {
-        //*not done*
+        // have to do it 
     }
 
     public  override double CalculateEfficiency()
     {
+        if(fuelConsumption <= 0)
+        {
+            throw new Exception("Fuel consumption should be greater than 0");
+        }
         return base.CalculateEfficiency() / fuelConsumption; // project says based on speed and load, but also consider fuel consumption.
     }
     

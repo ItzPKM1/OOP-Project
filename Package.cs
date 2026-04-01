@@ -6,34 +6,78 @@ public class Package
     private string destination;
     private string status; //(Pending, Assigned, Delivered)
 
-    public Package(int id, double weight, int priorityLevel, string destination)
+    public Package(int id, double weight, int priorityLevel, string destination,string status)
     {
         this.id = id;
         this.weight = weight;
         this.priorityLevel = priorityLevel;
         this.destination = destination;
+        this.status = status;
     }
 
+   
+
+    
+    public int GetId()
+    {
+        return id;
+    }
+
+    public void SetId(int id)
+    {
+        this.id = id  ;
+    }public double GetWeight()
+    {
+        return weight;
+    }
+
+    public void SetWeight(double weight)
+    {
+        this.weight = weight  ;
+    }public double GetDestination()
+    {
+        return destination;
+    }
+
+    public void SetDestination(string destination)
+    {
+        this.destination = destination  ;
+    }
+    public int GetPriorityLevel()
+    {
+        return priorityLevel;
+    }
+
+    public void SetPriorityLevel(int priorityLevel)
+    {
+        this.maxDistance = maxDistance  ;
+    }
+
+    public string GetStatus()
+    {
+        return status;
+    }
+
+    public void SetStatus(string status)
+    {
+        this.status = status ;
+    }
+
+
+    public bool IsHeavy()
+    {
+        double heavyTreshold =100.0;
+        return weight > heavyTreshold;
+    }
     public double CalculatePriorityScore()
     {
-        Console.WriteLine("Enter priority score");
+        double score = priorityLevel + weight;
+        Console.WriteLine("Priotrity score :" + score);
     }
     public void UpdateStatus(string newStatus)
     {
         this.status = newStatus;
     }
 
-    public bool isHeavy()
-    {
-        // weight >threshhold
-    }
-    public int getId()
-    {
-        return id;
-    }
-
-    public double getWeight()
-    {
-        return weight;
-    }
+    
 }
