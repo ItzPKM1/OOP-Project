@@ -1,16 +1,21 @@
 public class Truck : Vehicle
 {
     private double fuelConsumption;
-    public Truck(int id, string name, DateTime createdDate, double speed, double maxCapacity, double fuelConsumption) : base(id, name, createdDate, speed, maxCapacity)
+    public Truck(double speed, double maxCapacity,double currentLoad,bool isAvailable,double fuelConsumption) : base(speed,  maxCapacity, currentLoad, isAvailable)
     {
         this.fuelConsumption = fuelConsumption;
     }
 
     public override void Deliver(List<Package> packages)
     {
-        if (package.IsHeavy())
+        foreach(Package package in packages)
         {
-            Console.WriteLine("this truck handles heavy package");
+            if (package.IsHeavy())
+            {
+                Console.WriteLine("this package is considered heavy");
+                package.UpdateStatus("Delivered");
+            }
+            
         }
     }
 

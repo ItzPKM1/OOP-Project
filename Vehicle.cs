@@ -6,12 +6,12 @@ public abstract class Vehicle : Entity
     private bool isAvailable;
 
 
-    public Vehicle(int id, string name, DateTime createdDate,double speed, double maxCapacity) : base(id, name, createdDate)
+    public Vehicle(int id, string name, DateTime createdDate,double speed, double maxCapacity,double currentLoad,bool isAvailable) : base(id, name, createdDate)
     {
         this.speed = speed;
         this.maxCapacity = maxCapacity;
-        this.currentLoad = 0;
-        this.isAvailable = true;
+        this.currentLoad = currentLoad;
+        this.isAvailable = isAvailable;
     }
 
     public double GetSpeed()
@@ -36,6 +36,15 @@ public abstract class Vehicle : Entity
         }
         this.maxCapacity = maxCapacity;
     }
+    public double GetCurretnLoad()
+    {
+        return currentLoad;
+    }
+
+    public void SetCurrentLoad(double currentLoad)
+    {
+        this.currentLoad =  currentLoad  ;
+    }
     public bool GetIsAvailable()
     {
         return isAvailable;
@@ -47,12 +56,12 @@ public abstract class Vehicle : Entity
     }
     public double GetRemainingCapacity()
     {
-        return maxCapacity - currentLoad;
+        return "Your remaining capacity is : " + maxCapacity - currentLoad;
     }
 
     public virtual double CalculateEfficiency()
     {
-        return speed / maxCapacity; // project says based on speed and load.
+        return "Your effiency is : " + speed / maxCapacity; // project says based on speed and load.
     }
 
     public abstract void Deliver();

@@ -1,14 +1,21 @@
 public class Drone : Vehicle
 {
     private double maxDistance;
-    public Drone(int id, string name, DateTime createdDate, double speed, double maxCapacity, double maxDistance) : base(id, name, createdDate, speed, maxCapacity)
+    public Drone(double speed, double maxCapacity,double currentLoad,bool isAvailable, double maxDistance) : base(speed,  maxCapacity,currentLoad,isAvailable)
     {
         this.maxDistance = maxDistance;
     }
 
     public override void Deliver(List<Package> packages)
     {
-        //*not done*
+        foreach(Package package in packages)
+        {
+            if (!package.IsHeavy()  && package.GetWeight() < 50)
+            {
+                Console.WriteLine("this package is considered small/light");
+                package.UpdateStatus("Delivered");
+            }
+        }
     }
 
     public override double CalculateEfficiency()

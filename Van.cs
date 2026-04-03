@@ -1,14 +1,21 @@
 public class Van : Vehicle
 {
     private bool isElectric;
-    public Van(int id, string name, DateTime createdDate, double speed, double maxCapacity, bool isElectric) : base(id, name, createdDate, speed, maxCapacity)
+    public Van(double speed, double maxCapacity,double currentLoad,bool isAvailable, bool isElectric) : base(speed,  maxCapacity, currentLoad, isAvailable)
     {
         this.isElectric = isElectric;
     }
 
-    public override void  Deliver(List<Package> packages)
+    public override void  Deliver()
     {
-        //*not done*
+        foreach(Package package in packages)
+        {
+            if (!package.IsHeavy()  && package.GetWeight() >=50)
+            {
+                Console.WriteLine("this package is considered medium");
+                package.UpdateStatus("Delivered");
+            }
+        }
     }
     
 }
