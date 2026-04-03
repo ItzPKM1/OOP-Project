@@ -40,7 +40,7 @@ public class CustomStack<T>
         count--;
         T item = arr[count-1];
         arr[count] = default(T);
-        count --;
+        // removed accidental count--
         return item;
     }
 
