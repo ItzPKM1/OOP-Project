@@ -24,7 +24,7 @@ public abstract class Worker : Entity
     }
     public int GetTasksCompleted()
     {
-        return tasksCompleteds;
+        return tasksCompleted;
     }
 
     public void SetTaskCompleted(int taskCompleted)
@@ -56,5 +56,15 @@ public abstract class Worker : Entity
 
     public abstract void PerformTask();
     
-    
+    public override void DisplayInfo()
+    {
+        Console.WriteLine("Your id is : " + GetId());
+        Console.WriteLine("Your name is  " + GetName());
+        Console.WriteLine("Creation Date : " + GetCreatedDate());
+        Console.WriteLine("Years of experience you have  : " + GetExperienceYears());
+        Console.WriteLine("Tasks completed : "  + GetTasksCompleted());
+        Console.WriteLine(" Availabilty : " + GetIsAvailable());
+        
+
+    }
 }

@@ -34,7 +34,8 @@ public class Package
     public void SetWeight(double weight)
     {
         this.weight = weight  ;
-    }public double GetDestination()
+    }
+    public string GetDestination()
     {
         return destination;
     }
@@ -50,7 +51,7 @@ public class Package
 
     public void SetPriorityLevel(int priorityLevel)
     {
-        this.maxDistance = maxDistance  ;
+        this.priorityLevel = priorityLevel  ;
     }
 
     public string GetStatus()
@@ -66,13 +67,14 @@ public class Package
 
     public bool IsHeavy()
     {
-        double heavyTreshold =100.0;
+        double heavyTreshold = 100.0;
         return weight > heavyTreshold;
     }
     public double CalculatePriorityScore()
     {
         double score = priorityLevel + weight;
         Console.WriteLine("Priotrity score :" + score);
+        return score;
     }
     public void UpdateStatus(string newStatus)
     {

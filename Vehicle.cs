@@ -6,73 +6,24 @@ public abstract class Vehicle : Entity
     private bool isAvailable;
 
 
-<<<<<<< HEAD
-    public Vehicle(int id, string name, DateTime createdDate,double speed, double maxCapacity) : base(id, name, createdDate)
-=======
     public Vehicle(int id, string name, DateTime createdDate,double speed, double maxCapacity,double currentLoad,bool isAvailable) : base(id, name, createdDate)
->>>>>>> 3f614e95a37de62922ed6ad44d7ba88d9405ad48
     {
         this.speed = speed;
         this.maxCapacity = maxCapacity;
-        this.currentLoad = 0;
-        this.isAvailable = true;
+        this.currentLoad = currentLoad;
+        this.isAvailable = isAvailable;
     }
 
-<<<<<<< HEAD
-    public double GetSpeed()
-=======
-    //getters and setters
     public double GetSpeed()
     {
         return speed;
     }
-    public void SetSpeed(double speed)
-    {
-        this.speed = speed;
-    }
 
-    public double GetMaxCapacity()
-    {
-        return maxCapacity;
-    }
-
-    public void SetCapacity(double capacity)
-    {
-        if(GetMaxCapacity() <= 0)
-        {
-            throw new Exception("your capacity can't be less than 0");
-        }
-        this.maxCapacity = capacity;
-    }
-    public double GetCurrentLoad()
-    {
-        return currentLoad;
-    }
-    public void SetCurrentLoad(double load)
-    {
-        this.currentLoad = load;
-    }
-    public bool GetIsAvailable()
-    {
-        return isAvailable;
-    }
-    public void SetIsAvailable(bool available)
-    {
-        this.isAvailable = available;
-    }
-
-    public void SetCapacity(double capacity)
->>>>>>> 3f614e95a37de62922ed6ad44d7ba88d9405ad48
-    {
-        return speed;
-    }
-
-<<<<<<< HEAD
     public void SetSpeed(double speed)
     {
         this.speed =  speed  ;
     }
-    public int GetMaxCapacity()
+    public double GetMaxCapacity()
     {
         return maxCapacity;
     }
@@ -85,7 +36,16 @@ public abstract class Vehicle : Entity
         }
         this.maxCapacity = maxCapacity;
     }
-    public int GetIsAvailable()
+    public double GetCurretnLoad()
+    {
+        return currentLoad;
+    }
+
+    public void SetCurrentLoad(double currentLoad)
+    {
+        this.currentLoad =  currentLoad  ;
+    }
+    public bool GetIsAvailable()
     {
         return isAvailable;
     }
@@ -94,19 +54,17 @@ public abstract class Vehicle : Entity
     {
         this.isAvailable = isAvailable;
     }
-=======
->>>>>>> 3f614e95a37de62922ed6ad44d7ba88d9405ad48
     public double GetRemainingCapacity()
     {
-        return maxCapacity - currentLoad;
+        return "Your remaining capacity is : " + maxCapacity - currentLoad;
     }
 
     public virtual double CalculateEfficiency()
     {
-        return speed / currentLoad; // project says based on speed and load.
+        return "Your effiency is : " + speed / maxCapacity; // project says based on speed and load.
     }
 
-    public abstract void Deliver(List<Package> packages);
+    public abstract void Deliver();
     
     public override void DisplayInfo()
     {
@@ -114,16 +72,8 @@ public abstract class Vehicle : Entity
         Console.WriteLine("Your name is " + GetName());
         Console.WriteLine("Your created date is " + GetCreatedDate());
         Console.WriteLine("Your speed is " + GetSpeed());
-<<<<<<< HEAD
-        Console.WriteLine("Your speed is " + GetSpeed());
-        Console.WriteLine("Your speed is " + GetSpeed());
-        Console.WriteLine("Your speed is " + GetSpeed());
-        Console.WriteLine("Your speed is " + GetSpeed());
-        //Not done
-=======
         Console.WriteLine("Your max capacity is " + GetMaxCapacity());
         
->>>>>>> 3f614e95a37de62922ed6ad44d7ba88d9405ad48
         
     }
 }

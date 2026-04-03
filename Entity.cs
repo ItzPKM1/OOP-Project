@@ -11,7 +11,7 @@ public abstract class Entity
         this.createdDate = createdDate;
     }
 
-   public int GetId()
+    public int GetId()
     {
         return id;
     }
@@ -63,5 +63,7 @@ public abstract class Entity
 
     public abstract void DisplayInfo();
 
-
 }
+
+    
+
