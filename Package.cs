@@ -26,7 +26,8 @@ public class Package
     public void SetId(int id)
     {
         this.id = id  ;
-    }public double GetWeight()
+    }
+    public double GetWeight()
     {
         return weight;
     }
@@ -35,7 +36,7 @@ public class Package
     {
         this.weight = weight  ;
     }
-    public string GetDestination()
+    public string GetDestination() //fixed from double to string.
     {
         return destination;
     }
@@ -51,7 +52,7 @@ public class Package
 
     public void SetPriorityLevel(int priorityLevel)
     {
-        this.priorityLevel = priorityLevel  ;
+        this.priorityLevel = priorityLevel; //fxed from maxDistance to priorityLevel. idk how that happened.
     }
 
     public string GetStatus()
@@ -61,19 +62,22 @@ public class Package
 
     public void SetStatus(string status)
     {
+        if (status != "Pending" && status != "Assigned" && status != "Delivered")
+        {
+            throw new ArgumentException("Invalid status. Status should be either 'Pending', 'Assigned', or 'Delivered'."); //added validation for status.
+        }
         this.status = status ;
     }
 
 
     public bool IsHeavy()
     {
-        double heavyTreshold = 100.0;
+        double heavyTreshold =100.0;
         return weight > heavyTreshold;
     }
     public double CalculatePriorityScore()
     {
-        double score = priorityLevel + weight;
-        Console.WriteLine("Priotrity score :" + score);
+        double score = priorityLevel + weight; //fixed reduancy. maybe we can add something later based on destination, or weight.
         return score;
     }
     public void UpdateStatus(string newStatus)

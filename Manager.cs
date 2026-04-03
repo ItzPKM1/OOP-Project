@@ -1,7 +1,7 @@
 public class Manager : Worker
 {
     private int teamSize;
-    public Manager(int id, string name, DateTime createdDate, double speed, double maxCapacity, int teamSize, bool isAvailable) : base(id, name, createdDate, speed, maxCapacity, isAvailable)
+    public Manager(int id, string name, DateTime createdDate, int experienceYears, int tasksCompleted, bool isAvailable, int teamSize) : base(id, name, createdDate, experienceYears, tasksCompleted, isAvailable)
     {
         this.teamSize = teamSize;
     }
@@ -28,6 +28,16 @@ public class Manager : Worker
     {
         Console.WriteLine(name + " is managing a team of " + teamSize + " workers.");
     }
-    
+
+    public override void DisplayInfo()
+    {
+        Console.WriteLine("Your ID is " + GetId());
+        Console.WriteLine("Your name is " + GetName());
+        Console.WriteLine("Your created date is " + GetCreatedDate());
+        Console.WriteLine("Your experience years are " + GetExperienceYears());
+        Console.WriteLine("Your tasks completed are " + GetTasksCompleted());
+        Console.WriteLine("Your availability is " + GetIsAvailable());
+        Console.WriteLine("Your team size is : " + teamSize);
+    }
     
 }

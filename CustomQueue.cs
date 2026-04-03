@@ -36,7 +36,7 @@ public class CustomQueue<T>
         //remove and return the item at the front of the queue
         if (count == 0)
         {
-            throw new InvalidOperationException("Queue is empty.");
+            throw new InvalidOperationException("Queue is empty."); // need to make CustomException EmptyStructureException.
         }
         T item = arr[0];
         for (int i = 1; i < count; i++)
@@ -52,7 +52,7 @@ public class CustomQueue<T>
     {
         if (count == 0)
         {
-            throw new InvalidOperationException("Queue is empty.");
+            throw new InvalidOperationException("Queue is empty."); // need to make CustomException EmptyStructureException.
         }
         return arr[0];
     }
