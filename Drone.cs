@@ -1,31 +1,28 @@
-public class Drone : Vehicle
+
+namespace DeliverySystemProject
 {
-    private double maxDistance;
-    public Drone(double speed, double maxCapacity,double currentLoad,bool isAvailable, double maxDistance) : base(speed,  maxCapacity,currentLoad,isAvailable)
+    public class Drone : Vehicle
     {
-        this.maxDistance = maxDistance;
-    }
-
-    public override void Deliver(List<Package> packages)
-    {
-        foreach(Package package in packages)
+        private double maxDistance;
+        public Drone(int id, string name, DateTime createdDate, double speed, double maxCapacity, double maxDistance) : base(id, name, createdDate, speed, maxCapacity)
         {
-            if (!package.IsHeavy()  && package.GetWeight() < 50)
-            {
-                Console.WriteLine("this package is considered small/light");
-                package.UpdateStatus("Delivered");
-            }
+            this.maxDistance = maxDistance;
         }
-    }
 
-    public override double CalculateEfficiency()
-    {
-        return base.CalculateEfficiency() / maxDistance; // project says based on distance.
-    }
+        public override void Deliver(List<Package> packages)
+        {
+            //*not done*
+        }
 
-    public override void DisplayInfo()
-    {
-        Console.WriteLine("Max distance is : " + GetMaxDistance());
+        public override double CalculateEfficiency()
+        {
+            return base.CalculateEfficiency() / maxDistance; // project says based on distance.
+        }
+
+        public override void DisplayInfo()
+        {
+            Console.WriteLine("Max distance is : " + GetMaxDistance());
+        }
+        
     }
-    
 }
