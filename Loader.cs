@@ -1,7 +1,7 @@
 public class Loader : Worker
 {
     private double maxLiftWeight;
-    public Loader(int id, string name, DateTime createdDate, int experienceYears, int tasksCompleted, bool isAvailable, double maxLiftWeight) : base(id, name, createdDate, experienceYears, tasksCompleted, isAvailable)
+    public Loader(int experienceYears, int tasksCompleted, bool isAvailable, double maxLiftWeight) : base(experienceYears, tasksCompleted, isAvailable)
     {
         this.maxLiftWeight = maxLiftWeight;
     }
@@ -15,15 +15,19 @@ public class Loader : Worker
     {
         this.maxLiftWeight =  maxLiftWeight;
     }
-    public override void PerformTask()
+    public double CalculatePriorityScore()//check again
     {
-        //*not done*
+          
+         return  experienceYears *  tasksCompleted;
+       
     }
+   
+   
+
+    
     public override void DisplayInfo()
     {
-        Console.WriteLine("Your ID is " + GetId());
-        Console.WriteLine("Your name is " + GetName());
-        Console.WriteLine("Your created date is " + GetCreatedDate());
+       
         Console.WriteLine("Your experience years are " + GetExperienceYears());
         Console.WriteLine("Your tasks completed are " + GetTasksCompleted());
         Console.WriteLine("Your availability is " + GetIsAvailable());

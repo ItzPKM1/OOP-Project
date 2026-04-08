@@ -1,7 +1,7 @@
 public class Drone : Vehicle
 {
     private double maxDistance;
-    public Drone(int id, string name, DateTime createdDate, double speed, double maxCapacity, double maxDistance) : base(id, name, createdDate, speed, maxCapacity)
+    public Drone(double speed, double maxCapacity,double currentLoad,bool isAvailable, double maxDistance) : base( speed,  maxCapacity,currentLoad,isAvailable)
     {
         this.maxDistance = maxDistance;
     }
@@ -17,11 +17,14 @@ public class Drone : Vehicle
 
     public override void Deliver(List<Package> packages)
     {
-        //*not done*
-        //for (int i = 0; i < packages.Count; i++)
-        //{
-        //    // Deliver each package
-        //}
+         foreach(Package package in packages)
+        {
+            if ( package.GetWeight() <50)
+            {
+                Console.WriteLine("this package is considered lightly weight");
+                package.UpdateStatus("Delivered");
+            }
+        }
     }
 
     public override double CalculateEfficiency()
@@ -36,9 +39,9 @@ public class Drone : Vehicle
 
     public override void DisplayInfo()
     {
-        Console.WriteLine("Your name is " + GetName());
-        Console.WriteLine("Your ID is " + GetId());
-        Console.WriteLine("Your created date is " + GetCreatedDate());
+        
+        Console.WriteLine("Is it available " + GetIsAvailable());
+        Console.WriteLine("Your current load :" + GetCurrentLoad());
         Console.WriteLine("Your speed is " + GetSpeed());
         Console.WriteLine("Your max capacity is " + GetMaxCapacity());
         Console.WriteLine("Your max distance is " + GetMaxDistance());
