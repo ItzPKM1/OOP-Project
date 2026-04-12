@@ -1,3 +1,5 @@
+using System.Net;
+
 public class Warehouse
 {
     private string name;
@@ -22,30 +24,48 @@ public class Warehouse
     {
         for (int i = 0; i < packages.Count; i++)
         {
-            if (packages[i].Id == packageId)
+            if (packages[i].GetId() == packageId)
             {
                 packages.RemoveAt(i);
                 return;
             }
         }
     }
-    // public Vehicle FindBestVehicle(Package p)
-    // {
-    //     //based on capacity + efficiency.
-    //     Vehicle bestVehicle = null;
-    //     double bestEfficiency = 0;
-    //     for (int i = 0; i < vehicles.Count; i++)
-    //     {
-    //         if ()
-    //         {
-                
-    //         }
-    //     }
-    
+    public Vehicle FindBestVehicle(Package p)
+    {
+        if(vehicles.Count == 0)
+        {
+            throw new EmptyStructureException("No vehicles in warehouse");
+        }
 
-    // }
+        //based on capacity + efficiency.
+        Vehicle bestVehicle = null;
+        double bestEfficiency = 0;
+        for (int i = 0; i < vehicles.Count; i++)
+        {
+            
+                Vehicle v = vehicles[i];
+
+            if(v.GetCurrentLoad() + p.GetWeight() <= v.GetMaxCapacity())
+            {
+                double efficiency = v.CalculateEfficiency();
+
+                if(efficiency > bestEfficiency)
+                {
+                    bestEfficiency = efficiency;
+                    bestVehicle = v;
+                }
+            }
+        }
+            return bestVehicle;
+
+     }
     public void AssignWorker(Worker worker)
     {
+        if(workers.Count == 0)
+        {
+            throw new EmptyStructureException("No wokers  in warehouse");
+        }
         for(int i = 0; i < workers.Count; i++)
         {
             if (workers[i].IsAvailable)
@@ -58,10 +78,14 @@ public class Warehouse
 
     public List<Package> GetPendingPackages()
     {
-        //not done.
+        List<Package> pending = new List<Package>();
         for (int i = 0; i < packages.Count; i++)
         {
-            // if ()
+            if(packages[i].GetStatus() == "Pending")//it will add status pending into list pending
+            {
+                pending.Add(packages[i]);
+            }
         }
+        return pending;
     }
 }

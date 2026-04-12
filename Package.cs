@@ -33,7 +33,11 @@ public class Package
 
     public void SetWeight(double weight)
     {
-        this.weight = weight  ;
+        {
+            throw new InvalidDataException("Weight must be positive");
+        }
+        this.weight = weight;
+       
     }
     public string GetDestination()
     {
@@ -51,6 +55,9 @@ public class Package
 
     public void SetPriorityLevel(int priorityLevel)
     {
+        {
+            throw new InvalidDataException();
+        }
         this.priorityLevel = priorityLevel  ;
     }
 

@@ -1,6 +1,5 @@
-namespace CustomException
-{
-    public class CustomException:Exception
+
+    public class CustomException
     {
         
             public class InvalidDataException : Exception
@@ -12,22 +11,21 @@ namespace CustomException
 
             }
 
-            public class OverCapacityExcption : Exception
+            public class OverCapacityException : Exception
             {
-                public OverCapacityExcption() : base("Capacity is over limit")
+                public OverCapacityException() : base("Capacity is over limit")
                 { }
-                public OverCapacityExcption(string m) : base(m)
+                public OverCapacityException(string m) : base(m)
                 { }
             }
-            public class EmptyStructureExcption : Exception
+            public class EmptyStructureException : Exception
             {
-                public EmptyStructureExcptionExcption() : base("Structure not defined")
+                public EmptyStructureExceptionException() : base("Structure not defined")
                 { }
-                public EmptyStructureExcption(string m) : base(m)
+                public EmptyStructureException(string m) : base(m)
                 { }
             }
 
 
 
    }
-}
