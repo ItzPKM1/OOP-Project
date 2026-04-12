@@ -1,3 +1,5 @@
+namespace deliverySystem.Model
+{
 public class Driver : Worker
 {
     private string licenseType;
@@ -29,4 +31,5 @@ public class Driver : Worker
     }
 
     
+}
 }

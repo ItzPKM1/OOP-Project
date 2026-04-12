@@ -1,4 +1,6 @@
-using System.Net;
+namespace deliverySystem.Model
+
+{
 
 public class Warehouse
 {
@@ -36,7 +38,7 @@ public class Warehouse
     {
         if(vehicles.Count == 0)
         {
-            throw new EmptyStructureException("No vehicles in warehouse");
+            throw new CustomException.CustomException.EmptyStructureException("No vehicles in warehouse");
         }
 
         //based on capacity + efficiency.
@@ -61,11 +63,11 @@ public class Warehouse
             return bestVehicle;
 
      }
-    public void AssignWorker(Worker worker)
+    public Worker AssignWorker()
     {
         if(workers.Count == 0)
         {
-            throw new EmptyStructureException("No wokers  in warehouse");
+            throw new CustomException.CustomException.EmptyStructureException("No workers in warehouse");
         }
         for(int i = 0; i < workers.Count; i++)
         {
@@ -89,4 +91,5 @@ public class Warehouse
         }
         return pending;
     }
+}
 }

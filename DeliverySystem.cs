@@ -1,4 +1,5 @@
-
+namespace deliverySystem.Model
+{
 public class DeliverySystem
 {
     private List<Warehouse> warehouses ;
@@ -91,19 +92,7 @@ public class DeliverySystem
         Console.WriteLine("Finish");
 
     } 
-    
-
-
-
-
-
-
-
-
-
-
-
-
+}
 }
    
     

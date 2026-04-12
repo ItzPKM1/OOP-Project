@@ -1,5 +1,6 @@
-
-    public class CustomException
+namespace deliverySystem.CustomException
+{
+    public class CustomException:Exception
     {
         
             public class InvalidDataException : Exception
@@ -20,7 +21,7 @@
             }
             public class EmptyStructureException : Exception
             {
-                public EmptyStructureExceptionException() : base("Structure not defined")
+                public EmptyStructureException() : base("Structure not defined")
                 { }
                 public EmptyStructureException(string m) : base(m)
                 { }
@@ -29,3 +30,4 @@
 
 
    }
+}

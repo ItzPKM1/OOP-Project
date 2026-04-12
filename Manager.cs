@@ -1,3 +1,5 @@
+namespace deliverySystem.Model
+{
 public class Manager : Worker
 {
     private int teamSize;
@@ -36,5 +38,5 @@ public class Manager : Worker
         Console.WriteLine("Your availability is " + GetIsAvailable());
         Console.WriteLine("Your team size is : " + teamSize);
     }
-    
+}
 }

@@ -1,3 +1,5 @@
+namespace deliverySystem.DSA
+{
 public class CustomStack<T>
 {
     //Attributes are an array list or storage
@@ -35,10 +37,10 @@ public class CustomStack<T>
     {
         if (count == 0)
         {
-            throw new InvalidOperationException("Stack is empty.");
+            throw new CustomException.CustomException.EmptyStructureException("Stack is empty.");
         }
         count--;
-        T item = arr[count-1];
+        T item = arr[count]; // not count -1 because that would return the second to the top item. corrected.
         arr[count] = default(T);
         // removed accidental count--
         return item;
@@ -48,7 +50,7 @@ public class CustomStack<T>
     {
         if (count == 0)
         {
-            throw new InvalidOperationException("Stack is empty.");
+            throw new CustomException.CustomException.EmptyStructureException("Stack is empty.");
         }
         return arr[count - 1];
     }
@@ -57,4 +59,5 @@ public class CustomStack<T>
     {
         return count == 0;  
     }
+}
 }

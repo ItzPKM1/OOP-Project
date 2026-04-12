@@ -1,10 +1,10 @@
-using System.Diagnostics;
-
+namespace deliverySystem.Model
+{
 public abstract class Worker : Entity
 {
-    private int experienceYears;
-    private int tasksCompleted;
-    private bool isAvailable;
+    protected int experienceYears;
+    protected int tasksCompleted;
+    protected bool isAvailable;
 
 
     public Worker(int id, string name, DateTime createdDate,int experienceYears, int tasksCompleted, bool isAvailable) : base(id, name, createdDate)
@@ -67,4 +67,5 @@ public abstract class Worker : Entity
         
 
     }
+}
 }

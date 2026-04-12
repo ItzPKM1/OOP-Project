@@ -1,3 +1,5 @@
+namespace deliverySystem.Model
+{
 public class Drone : Vehicle
 {
     private double maxDistance;
@@ -46,5 +48,5 @@ public class Drone : Vehicle
         Console.WriteLine("Your max capacity is " + GetMaxCapacity());
         Console.WriteLine("Your max distance is " + GetMaxDistance());
     }
-    
+}
 }

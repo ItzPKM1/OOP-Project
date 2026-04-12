@@ -1,3 +1,5 @@
+namespace deliverySystem.Model
+{
 public class Van : Vehicle
 {
     private bool isElectric;
@@ -6,7 +8,7 @@ public class Van : Vehicle
         this.isElectric = isElectric;
     }
 
-    public override void  Deliver()
+    public override void Deliver(List<Package> packages)
     {
         foreach(Package package in packages)
         {
@@ -17,5 +19,5 @@ public class Van : Vehicle
             }
         }
     }
-    
+}
 }

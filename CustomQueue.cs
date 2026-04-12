@@ -1,3 +1,5 @@
+namespace deliverySystem.DSA
+{
 public class CustomQueue<T>
 {
     //Attributes are an array list or storage
@@ -36,7 +38,7 @@ public class CustomQueue<T>
         //remove and return the item at the front of the queue
         if (count == 0)
         {
-            throw new InvalidOperationException("Queue is empty."); // need to make CustomException EmptyStructureException.
+            throw new CustomException.CustomException.EmptyStructureException("Queue is empty."); // added our custom exceptions from the CustomException class.
         }
         T item = arr[0];
         for (int i = 1; i < count; i++)
@@ -52,7 +54,7 @@ public class CustomQueue<T>
     {
         if (count == 0)
         {
-            throw new InvalidOperationException("Queue is empty."); // need to make CustomException EmptyStructureException.
+            throw new CustomException.CustomException.EmptyStructureException("Queue is empty."); // added our custom exceptions from the CustomException class.
         }
         return arr[0];
     }
@@ -61,4 +63,5 @@ public class CustomQueue<T>
     {
         return count == 0;  
     }
+}
 }
