@@ -1,3 +1,5 @@
+using System.Net;
+
 public class Warehouse
 {
     private string name;
@@ -30,26 +32,41 @@ public class Warehouse
             }
         }
     }
-    // public Vehicle FindBestVehicle(Package p) //*NOT DONE*
-    // {
-    //     //based on capacity + efficiency.
-    //     Vehicle bestVehicle = null;
-    //     double bestEfficiency = 0;
-    //     for (int i = 0; i < vehicles.Count; i++)
-    //     {
-    //         double performance = vehicles[i].CalculateEfficiency();
-    //         if ()
-    //         {
-                
-    //         }
-
-
-    //     }
-        
-
-    // }
-    public Worker AssignWorker() // using Worker as a parameter is redundant. We can just find the first available worker in the list.
+    public Vehicle FindBestVehicle(Package p)
     {
+        if(vehicles.Count == 0)
+        {
+            throw new EmptyStructureException("No vehicles in warehouse");
+        }
+
+        //based on capacity + efficiency.
+        Vehicle bestVehicle = null;
+        double bestEfficiency = 0;
+        for (int i = 0; i < vehicles.Count; i++)
+        {
+            
+                Vehicle v = vehicles[i];
+
+            if(v.GetCurrentLoad() + p.GetWeight() <= v.GetMaxCapacity())
+            {
+                double efficiency = v.CalculateEfficiency();
+
+                if(efficiency > bestEfficiency)
+                {
+                    bestEfficiency = efficiency;
+                    bestVehicle = v;
+                }
+            }
+        }
+            return bestVehicle;
+
+     }
+    public void AssignWorker(Worker worker)
+    {
+        if(workers.Count == 0)
+        {
+            throw new EmptyStructureException("No wokers  in warehouse");
+        }
         for(int i = 0; i < workers.Count; i++)
         {
             if (workers[i].GetIsAvailable()) // fixed because was private.
@@ -62,12 +79,14 @@ public class Warehouse
 
     public List<Package> GetPendingPackages() //*NOT DONE*
     {
-        //not done.
-        // for (int i = 0; i < packages.Count; i++)
-        // {
-        //     // if ()
-        // }
-        return new List<Package>();
-
+        List<Package> pending = new List<Package>();
+        for (int i = 0; i < packages.Count; i++)
+        {
+            if(packages[i].GetStatus() == "Pending")//it will add status pending into list pending
+            {
+                pending.Add(packages[i]);
+            }
+        }
+        return pending;
     }
 }

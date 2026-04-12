@@ -1,3 +1,5 @@
+
+
 namespace Vehicle
 {
     public abstract class Vehicle : Entity
@@ -38,13 +40,17 @@ namespace Vehicle
             }
             this.maxCapacity = maxCapacity;
         }
-        public double GetCurretnLoad()
+        public double GetCurrentLoad()
         {
             return currentLoad;
         }
 
         public void SetCurrentLoad(double currentLoad)
         {
+            if(currentLoad > maxCapacity)
+            {
+                throw new OverCapacityException("Vehicle cannot be greater than max cap");
+            }
             this.currentLoad =  currentLoad  ;
         }
         public bool GetIsAvailable()
@@ -58,15 +64,15 @@ namespace Vehicle
         }
         public double GetRemainingCapacity()
         {
-            return "Your remaining capacity is : " + maxCapacity - currentLoad;
+            return  maxCapacity - currentLoad;
         }
 
         public virtual double CalculateEfficiency()
         {
-            return "Your effiency is : " + speed / maxCapacity; // project says based on speed and load.
+            return  speed / maxCapacity; // project says based on speed and load.
         }
 
-        public abstract void Deliver();
+        public abstract void Deliver(List<Package> packages);
         
         public override void DisplayInfo()
         {

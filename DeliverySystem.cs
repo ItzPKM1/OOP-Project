@@ -1,6 +1,4 @@
 
-using System.Xml.Linq;
-
 public class DeliverySystem
 {
     private List<Warehouse> warehouses ;
@@ -59,12 +57,38 @@ public class DeliverySystem
     
     public void ProcessDeliveries()
     {
-        // → Assign + deliver 
+       
+        foreach (Package p in allPackages)
+        {
+            if (p.GetStatus() == "Pending")
+            {
+                if (warehouses.Count == 0)
+                    return;
+
+                Warehouse w = warehouses[0];
+
+                Vehicle v = w.FindBestVehicle(p);
+
+                if (v != null)
+                {
+                    v.Deliver(new List<Package> { p });
+                    p.UpdateStatus("Delivered");
+                }
+            }
+        }
     }
    
     public void SimulateDay()
     {
-        
+        Console.WriteLine("Simulation Day");
+
+        Console.WriteLine("Sorting Packages");
+        SortPackages();
+
+        Console.WriteLine("Processing deliveries");
+        ProcessDeliveries();
+
+        Console.WriteLine("Finish");
 
     } 
     

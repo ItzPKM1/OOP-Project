@@ -34,7 +34,11 @@ public class Package
 
     public void SetWeight(double weight)
     {
-        this.weight = weight  ;
+        {
+            throw new InvalidDataException("Weight must be positive");
+        }
+        this.weight = weight;
+       
     }
     public string GetDestination() //fixed from double to string.
     {
@@ -52,7 +56,10 @@ public class Package
 
     public void SetPriorityLevel(int priorityLevel)
     {
-        this.priorityLevel = priorityLevel; //fxed from maxDistance to priorityLevel. idk how that happened.
+        {
+            throw new InvalidDataException();
+        }
+        this.priorityLevel = priorityLevel  ;
     }
 
     public string GetStatus()
