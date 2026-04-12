@@ -39,11 +39,11 @@ namespace deliverySystem.Main // these are just like our java project.
                         {
                             Truck truck1 = new Truck(1, "Truck 1", DateTime.Now, 80, 1000, 0, true, 5.0);
                             warehouse.AddVehicle(truck1); //***NEED TO ADD METHOD. we need to go back to warehouse to add AddVehicle method.
-                            Driver driver1 = new Driver1(1, "Driver 1", DateTime.Now, 5, 100, true, "Class A");
+                            Driver driver1 = new Driver (1, "Driver 1", DateTime.Now, 5, 100, true, "Class 1"); //class 1 just means to be able to drive heavy vehichles. Class 2 is for standard vehicles and SUVs, and vans, as well as small trucks.
                             warehouse.AddWorker(driver1);// ***NEED TO ADD METHOD. not workers.Add(driver1) because we want to add to warehouse's list of workers, not a list of workers in main. 
                             Loader loader1 = new Loader (2, "Loader 1", DateTime.Now, 3, 15, true, 50.0);
                             warehouse.AddWorker(loader1); // ***NEED TO ADD METHOD. not workers.Add(loader1) because we want to add to warehouse's list of workers, not a list of workers in main.
-                            Package package1 = new Package(1, 10.5, 2, "Location A", "Pending");
+                            Package package1 = new Package (1, 10.5, 2, "Location A", "Pending");
                             warehouse.AddPackage(package1);
                             deliverySystem.AddPackage(package1); // also add to delivery system's allPackages list. 
                             Console.WriteLine("Entities added successfully.");

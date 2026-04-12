@@ -1,4 +1,4 @@
-
+using deliverySystem.CustomException;
 namespace deliverySystem.Model
 {
     public abstract class Vehicle : Entity
