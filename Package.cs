@@ -38,7 +38,7 @@ public class Package
     {
         if(weight < 0)
         {
-            throw new InvalidDataException("Weight cannot be negative");
+            throw new CustomException.CustomException.InvalidDataException("Weight cannot be negative");
         }
 
         this.weight = weight;
@@ -61,7 +61,7 @@ public class Package
     {
         if(priorityLevel < 0)
         {
-            throw new InvalidDataException("Priority level cannot be negative");
+            throw new CustomException.CustomException.InvalidDataException("Priority level cannot be negative");
         }
 
         this.priorityLevel = priorityLevel; //fxed from maxDistance to priorityLevel. idk how that happened.
