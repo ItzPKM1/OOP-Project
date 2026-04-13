@@ -11,7 +11,7 @@ public class CustomQueue<T>
     {
         if (capacity <= 0)
         {
-            throw new ArgumentException("Capacity must be greater than zero.");
+            throw new CustomException.CustomException.InvalidDataException("Capacity must be greater than zero.");
         }
         arr = new T[capacity];
         count = 0;
@@ -27,7 +27,7 @@ public class CustomQueue<T>
     {
         if (count == arr.Length)
         {
-            throw new InvalidOperationException("Queue is full.");
+            throw new CustomException.CustomException.EmptyStructureException("Queue is full.");
         }
         arr[count] = item;
         count++;
