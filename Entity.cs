@@ -1,3 +1,5 @@
+namespace deliverySystem.Model
+{
 public abstract class Entity
 {
     protected int id;
@@ -63,5 +65,5 @@ public abstract class Entity
 
     public abstract void DisplayInfo();
 
-
+}
 }

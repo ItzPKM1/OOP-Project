@@ -46,7 +46,7 @@ public abstract class Worker : Entity
         tasksCompleted++;
         Console.WriteLine("Task completed : " + tasksCompleted);
     }
-
+  
 
     public virtual double CalculatePerformance()
     {

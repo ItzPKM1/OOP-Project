@@ -1,7 +1,9 @@
+namespace deliverySystem.Model
+{
 public class Loader : Worker
 {
     private double maxLiftWeight;
-    public Loader(int experienceYears, int tasksCompleted, bool isAvailable, double maxLiftWeight) : base(experienceYears, tasksCompleted, isAvailable)
+    public Loader(int id, string name, DateTime createdDate,int experienceYears, int tasksCompleted, bool isAvailable, double maxLiftWeight) : base(id, name, createdDate, experienceYears, tasksCompleted, isAvailable)
     {
         this.maxLiftWeight = maxLiftWeight;
     }
@@ -11,15 +13,24 @@ public class Loader : Worker
         return maxLiftWeight;
     }
 
+
+
     public void SetMaxLiftWeight(double maxLiftWeight) //fixed setter name.
     {
         this.maxLiftWeight =  maxLiftWeight;
     }
+    public double CalculatePriorityScore()//check again
+    {
+          
+         return  experienceYears *  tasksCompleted;
+       
+    }
    
-   
-   
+        public override void PerformTask()
+        {
+            Console.WriteLine("Loading Deliveries");
+        }
 
-    
     public override void DisplayInfo()
     {
        
@@ -29,5 +40,5 @@ public class Loader : Worker
         Console.WriteLine("Your max lift weight is : " + GetMaxLiftWeight());
     }
     
-   
+}
 }

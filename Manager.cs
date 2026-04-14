@@ -1,7 +1,9 @@
+namespace deliverySystem.Model
+{
 public class Manager : Worker
 {
     private int teamSize;
-    public Manager(int experienceYears, int tasksCompleted, bool isAvailable, int teamSize) : base(experienceYears, tasksCompleted, isAvailable)
+    public Manager(int id, string name, DateTime createdDate,int experienceYears, int tasksCompleted, bool isAvailable, int teamSize) : base(id, name, createdDate, experienceYears, tasksCompleted, isAvailable)
     {
         this.teamSize = teamSize;
     }
@@ -36,5 +38,5 @@ public class Manager : Worker
         Console.WriteLine("Your availability is " + GetIsAvailable());
         Console.WriteLine("Your team size is : " + teamSize);
     }
-    
+}
 }

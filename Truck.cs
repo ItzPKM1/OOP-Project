@@ -1,31 +1,37 @@
-public class Truck : Vehicle
+namespace deliverySystem.Model
 {
-    private double fuelConsumption;
-    public Truck(double speed, double maxCapacity,double currentLoad,bool isAvailable,double fuelConsumption) : base(speed,  maxCapacity, currentLoad, isAvailable)
+    public class Truck : Vehicle
     {
-        this.fuelConsumption = fuelConsumption;
-    }
-
-    public override void Deliver(List<Package> packages)
-    {
-        foreach(Package package in packages)
+        private double fuelConsumption;
+        public Truck(int id, string name, DateTime createdDate,double speed, double maxCapacity,double currentLoad,bool isAvailable,double fuelConsumption) : base(id, name, createdDate, speed, maxCapacity, currentLoad, isAvailable)
         {
-            if (package.IsHeavy())
+            this.fuelConsumption = fuelConsumption;
+        }
+        public double GetFuelConsumption()
+        {
+            return fuelConsumption;
+        }
+
+        public override void Deliver(List<Package> packages)
+        {
+            foreach(Package package in packages)
             {
-                Console.WriteLine("this package is considered heavy");
-                package.UpdateStatus("Delivered");
+                if (package.IsHeavy())
+                {
+                    Console.WriteLine("this package is considered heavy");
+                    package.UpdateStatus("Delivered");
+                }
             }
             
         }
-    }
-
-    public  override double CalculateEfficiency()
-    {
-        if(fuelConsumption <= 0)
+        public  override double CalculateEfficiency()
         {
-            throw new Exception("Fuel consumption should be greater than 0");
+            if(fuelConsumption <= 0)
+            {
+                throw new Exception("Fuel consumption should be greater than 0");
+            }
+            return base.CalculateEfficiency() / fuelConsumption; // project says based on speed and load, but also consider fuel consumption.
         }
-        return base.CalculateEfficiency() / fuelConsumption; // project says based on speed and load, but also consider fuel consumption.
-    }
     
+    }
 }

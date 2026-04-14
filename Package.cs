@@ -1,3 +1,5 @@
+namespace deliverySystem.Model
+{
 public class Package
 {
     private int id;
@@ -32,13 +34,14 @@ public class Package
         return weight;
     }
 
-    public void SetWeight(double weight)
+    public void SetWeight(double weight) // fixed validation for weight. can't be negative.
     {
+        if(weight < 0)
         {
-            throw new InvalidDataException("Weight must be positive");
+            throw new CustomException.CustomException.InvalidDataException("Weight cannot be negative");
         }
+
         this.weight = weight;
-       
     }
     public string GetDestination() //fixed from double to string.
     {
@@ -54,12 +57,14 @@ public class Package
         return priorityLevel;
     }
 
-    public void SetPriorityLevel(int priorityLevel)
+    public void SetPriorityLevel(int priorityLevel) // fixed validation for priority level. can't be negative.
     {
+        if(priorityLevel < 0)
         {
-            throw new InvalidDataException();
+            throw new CustomException.CustomException.InvalidDataException("Priority level cannot be negative");
         }
-        this.priorityLevel = priorityLevel  ;
+
+        this.priorityLevel = priorityLevel; //fxed from maxDistance to priorityLevel. idk how that happened.
     }
 
     public string GetStatus()
@@ -91,6 +96,6 @@ public class Package
     {
         this.status = newStatus;
     }
-
     
+}
 }
