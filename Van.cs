@@ -3,7 +3,7 @@ namespace deliverySystem.Model
 public class Van : Vehicle
 {
     private bool isElectric;
-    public Van(double speed, double maxCapacity,double currentLoad,bool isAvailable, bool isElectric) : base(speed,  maxCapacity, currentLoad, isAvailable)
+    public Van(int id, string name, DateTime createdDate,double speed, double maxCapacity,double currentLoad,bool isAvailable, bool isElectric) : base(id, name, createdDate, speed, maxCapacity, currentLoad, isAvailable)
     {
         this.isElectric = isElectric;
     }

@@ -7,7 +7,7 @@ public abstract class Worker : Entity
     protected bool isAvailable;
 
 
-    public Worker(int id, string name, DateTime createdDate,int experienceYears, int tasksCompleted, bool isAvailable) : base(id, name, createdDate)
+    public Worker(int id, string name, DateTime createdDate, int experienceYears, int tasksCompleted, bool isAvailable) : base(id, name, createdDate)
     {
         this.experienceYears = experienceYears;
         this.tasksCompleted = tasksCompleted;

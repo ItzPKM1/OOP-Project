@@ -27,7 +27,7 @@ public class CustomQueue<T>
     {
         if (count == arr.Length)
         {
-            throw new CustomException.CustomException.EmptyStructureException("Queue is full.");
+            throw new CustomException.CustomException.OverCapacityException("Queue is full.");
         }
         arr[count] = item;
         count++;

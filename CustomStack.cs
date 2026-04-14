@@ -27,7 +27,7 @@ public class CustomStack<T>
     {
         if (count == arr.Length)
         {
-            throw new CustomException.CustomException.EmptyStructureException("Stack is full.");
+            throw new CustomException.CustomException.OverCapacityException("Stack is full.");
         }
         arr[count] = item;
         count++;

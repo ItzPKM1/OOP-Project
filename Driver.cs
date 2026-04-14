@@ -3,7 +3,7 @@ namespace deliverySystem.Model
 public class Driver : Worker
 {
     private string licenseType;
-    public Driver(int experienceYears, int tasksCompleted, bool isAvailable, string licenseType) : base(experienceYears, tasksCompleted, isAvailable)
+    public Driver(int id, string name, DateTime createdDate,int experienceYears, int tasksCompleted, bool isAvailable, string licenseType) : base(id, name, createdDate, experienceYears, tasksCompleted, isAvailable)
     {
         this.licenseType = licenseType;
     }

@@ -3,7 +3,7 @@ namespace deliverySystem.Model
 public class Loader : Worker
 {
     private double maxLiftWeight;
-    public Loader(int experienceYears, int tasksCompleted, bool isAvailable, double maxLiftWeight) : base(id, name, createdDate, experienceYears, tasksCompleted, isAvailable)
+    public Loader(int id, string name, DateTime createdDate,int experienceYears, int tasksCompleted, bool isAvailable, double maxLiftWeight) : base(id, name, createdDate, experienceYears, tasksCompleted, isAvailable)
     {
         this.maxLiftWeight = maxLiftWeight;
     }

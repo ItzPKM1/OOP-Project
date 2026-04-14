@@ -3,7 +3,7 @@ namespace deliverySystem.Model
 public class Drone : Vehicle
 {
     private double maxDistance;
-    public Drone(double speed, double maxCapacity,double currentLoad,bool isAvailable, double maxDistance) : base( speed,  maxCapacity,currentLoad,isAvailable)
+    public Drone(int id, string name, DateTime createdDate,double speed, double maxCapacity,double currentLoad,bool isAvailable, double maxDistance) : base( id, name, createdDate, speed, maxCapacity, currentLoad, isAvailable)
     {
         this.maxDistance = maxDistance;
     }
