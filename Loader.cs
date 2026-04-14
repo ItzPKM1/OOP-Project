@@ -15,12 +15,7 @@ public class Loader : Worker
     {
         this.maxLiftWeight =  maxLiftWeight;
     }
-    public double CalculatePriorityScore()//check again
-    {
-          
-         return  experienceYears *  tasksCompleted;
-       
-    }
+   
    
    
 
