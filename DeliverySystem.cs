@@ -1,9 +1,10 @@
 namespace deliverySystem.Model
 {
-public class DeliverySystem
+public class DeliverySystem : ISortable
 {
     private List<Warehouse> warehouses ;
     private List<Package> allPackages ;
+    private int currentDay = 1;
 
 
     public DeliverySystem()
@@ -23,6 +24,18 @@ public class DeliverySystem
     public  void AddPackage(Package p)
     {
         allPackages.Add(p);
+    }
+    //added remove package method to remove package from allPackages list.
+    public void RemovePackage(int packageId)
+    {
+        for (int i = 0; i < allPackages.Count; i++)
+        {
+            if (allPackages[i].GetId() == packageId) // fixed because was private.
+            {
+                allPackages.RemoveAt(i);
+                return;
+            }
+        }
     } 
     public Package SearchPackageById(int id)
     {
@@ -62,7 +75,7 @@ public class DeliverySystem
        
         foreach (Package p in allPackages)
         {
-            if (p.GetStatus() == "Pending")
+            if (p.GetStatus() == "Pending" || p.GetStatus() == "Assigned")
             {
                 if (warehouses.Count == 0)
                     return;
@@ -82,7 +95,7 @@ public class DeliverySystem
    
     public void SimulateDay()
     {
-        Console.WriteLine("Simulation Day");
+        Console.WriteLine("Simulation Day " + currentDay);
 
         Console.WriteLine("Sorting Packages");
         SortPackages();
@@ -90,9 +103,15 @@ public class DeliverySystem
         Console.WriteLine("Processing deliveries");
         ProcessDeliveries();
 
-        Console.WriteLine("Finish");
+        Console.WriteLine("Finish Day " + currentDay);
+        currentDay++;
 
-    } 
+    }
+
+    public void Sort()
+    {
+        SortPackages();
+    }
 }
 }
    

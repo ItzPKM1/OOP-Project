@@ -22,7 +22,7 @@ public class Loader : Worker
     public double CalculatePriorityScore()//check again
     {
           
-         return  experienceYears *  tasksCompleted;
+         return  GetExperienceYears() *  GetTasksCompleted();
        
     }
    

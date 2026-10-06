@@ -6,6 +6,12 @@ public class Van : Vehicle
     public Van(int id, string name, DateTime createdDate,double speed, double maxCapacity,double currentLoad,bool isAvailable, bool isElectric) : base(id, name, createdDate, speed, maxCapacity, currentLoad, isAvailable)
     {
         this.isElectric = isElectric;
+        
+    }
+    
+    public bool GetIsElectric()
+    {
+        return isElectric;
     }
 
     public override void Deliver(List<Package> packages)

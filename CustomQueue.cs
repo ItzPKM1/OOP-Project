@@ -1,6 +1,6 @@
 namespace deliverySystem.DSA
 {
-public class CustomQueue<T>
+public class CustomQueue<T> : IQueueable<T>
 {
     //Attributes are an array list or storage
     private T[] arr;

@@ -9,7 +9,6 @@ namespace deliverySystem.Model
         private bool isAvailable;
 
 
-
         public Vehicle(int id, string name, DateTime createdDate,double speed, double maxCapacity,double currentLoad,bool isAvailable) : base(id, name, createdDate)
         {
             this.speed = speed;

@@ -7,6 +7,11 @@ public class Manager : Worker
     {
         this.teamSize = teamSize;
     }
+    
+    public int GetTeamSize()
+    {
+        return teamSize;
+    }
 
     public Worker FindBestWorker(List<Worker> workers) //initialize list of workers.
     {
