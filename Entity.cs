@@ -44,7 +44,7 @@ public abstract class Entity
 
     public void SetCreatedDate(DateTime createdDate)
     {
-        this.createdDate =  createdDate  ;
+        this.createdDate =  createdDate;
     }
     public virtual bool Validate()
     {
